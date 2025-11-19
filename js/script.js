@@ -62,15 +62,20 @@ function setupExplore(){
     })
   })
 }
-
+// ...existing code...
 // Game logic: simple match-the-pattern
 const PATTERNS = [
-  {id:'peshwa', class:'pattern-a', name:'Paisley-like motif'},
-  {id:'flower', class:'pattern-b', name:'Floral repeat'},
-  {id:'geometric', class:'pattern-c', name:'Geometric repeat'}
+  {id:'peshwa', class:'pattern-a', name:'Paisley-like motif', image:'./images/artisan.jpg'},
+  {id:'flower', class:'pattern-b', name:'Floral repeat', image:'./images/artisan1.jpg'},
+  {id:'geometric', class:'pattern-c', name:'Geometric repeat', image:'./images/artisan2.jpg'}
 ]
 
-function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function preloadImages(list){
+  list.forEach(p=>{
+    const i = new Image()
+    i.src = p.image
+  })
+}
 
 function newRound(){
   const optionsEl = document.getElementById('options')
@@ -79,16 +84,23 @@ function newRound(){
   result.textContent = ''
   const options = shuffle(PATTERNS.slice())
   const correct = options[0]
-  // render swatch
-  swatch.className = 'swatch ' + correct.class
+  // render swatch using image
+  swatch.className = 'swatch' // keep for sizing; remove pattern class usage
+  swatch.style.backgroundImage = `url('${correct.image}')`
   optionsEl.innerHTML = ''
   // present 3 options in random order
   const choices = shuffle(options.slice(0,3))
   choices.forEach(opt=>{
     const d = document.createElement('div')
-    d.className = 'option '+opt.class
+    d.className = 'option'
     d.dataset.id = opt.id
     d.title = opt.name
+    // thumbnail image inside option
+    const thumb = document.createElement('img')
+    thumb.src = opt.image
+    thumb.alt = opt.name
+    thumb.className = 'option-thumb'
+    d.appendChild(thumb)
     d.addEventListener('click', ()=>{
       if(opt.id === correct.id){
         result.textContent = 'Right — you found the block! Badge awarded.'
@@ -100,12 +112,19 @@ function newRound(){
     optionsEl.appendChild(d)
   })
 }
-
+// ...existing code...
 function init(){
   loadState(); renderBadges(); updateProgressUI(); setupExplore(); newRound();
   setupGallery();
+  preloadImages(PATTERNS)
   document.getElementById('newRound').addEventListener('click', newRound)
 }
+// ...existing code...
+
+
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+
+
 
 document.addEventListener('DOMContentLoaded', init)
 

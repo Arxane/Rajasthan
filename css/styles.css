@@ -22,7 +22,7 @@ body{font-family:Inter,Segoe UI,Arial,Helvetica,sans-serif;margin:0;background:v
 .explore-btn{background:var(--accent);color:#fff;border:none;padding:8px 10px;border-radius:6px;cursor:pointer}
 .game{margin-top:18px;background:#fff;padding:14px;border-radius:8px}
 .game-area{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-.swatch{width:220px;height:120px;border-radius:8px;border:1px solid #eee}
+.swatch{width:100%;height:200px;background-size: cover;border-radius:6px;border:1px solid #eee}
 .options{display:flex;gap:8px}
 .option{width:80px;height:80px;border-radius:6px;border:2px solid #eee;display:flex;align-items:center;justify-content:center;cursor:pointer}
 .option:hover{transform:translateY(-4px);transition:all .15s}
@@ -48,3 +48,52 @@ body{font-family:Inter,Segoe UI,Arial,Helvetica,sans-serif;margin:0;background:v
 .lb-image{height:320px;background:#fff3ec;border-radius:6px;background-size:contain;background-repeat:no-repeat;background-position:center}
 .lb-caption{margin-top:8px;color:var(--muted)}
 
+/* ...existing code... */
+
+/* game swatch (the big sample) */
+#swatch {
+  width: 100%;
+  height: min(40vh, 300px); /* responsive height, caps at 300px */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* options layout */
+#options {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+/* each choice box */
+.option {
+  flex: 0 0 30%;
+  max-width: 160px; /* prevents huge thumbnails on wide screens */
+  text-align: center;
+  cursor: pointer;
+}
+
+/* thumbnail inside option */
+.option-thumb {
+  width: 100%;
+  height: 110px;
+  object-fit: cover; /* crop to fill while keeping aspect */
+  display: block;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+
+/* smaller screens: reduce thumbnail height and option width */
+@media (max-width: 600px) {
+  .option { flex: 0 0 45%; max-width: 45%; }
+  .option-thumb { height: 80px; }
+  #swatch { height: min(35vh, 220px); }
+}
+
+/* ...existing code... */
