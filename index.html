@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hidden Prints — Block Printing of Rajasthan</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Hidden Prints</h1>
+    <p class="tag">Discover the under-represented craft of Sanganer & Bagru block printing — explore, play, and collect badges.</p>
+  </header>
+
+  <main class="container">
+    <section class="status">
+      <div class="progress-wrap">
+        <label>Progress</label>
+        <div id="progressBar" class="progress"><div id="progressFill" style="width:0%"></div></div>
+      </div>
+      <div class="badges">
+        <label>Badges</label>
+        <div id="badges" class="badges-list">
+          <!-- badges unlocked here -->
+        </div>
+      </div>
+    </section>
+
+    <section class="intro">
+      <h2>Why this craft matters</h2>
+      <p>Rajasthan's block printing — especially from Sanganer and Bagru — is an intricate, community-driven craft. Tourists often see finished garments, but not the dye vats, the family-run kilns, or the apprentices learning patterns from elders. This site pulls back the curtain through short facts and a small game.</p>
+    </section>
+
+    <section class="explore">
+      <h2>Explore the process</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Origins</h3>
+          <p class="summary">Where the motifs come from.</p>
+          <button class="explore-btn" data-id="origins">Explore</button>
+          <p class="fact" id="fact-origins"></p>
+        </article>
+
+        <article class="card">
+          <h3>Tools & Blocks</h3>
+          <p class="summary">Hand-carved wooden blocks create repeating patterns.</p>
+          <button class="explore-btn" data-id="tools">Explore</button>
+          <p class="fact" id="fact-tools"></p>
+        </article>
+
+        <article class="card">
+          <h3>Dye & Indigo</h3>
+          <p class="summary">Natural dyes and dyeing practices.</p>
+          <button class="explore-btn" data-id="dye">Explore</button>
+          <p class="fact" id="fact-dye"></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="game">
+      <h2>Mini-game — Match the Block</h2>
+      <p>Look at the printed swatch, then pick which wooden block made it. Get it right to win the "Pattern Finder" badge.</p>
+      <div id="gameArea" class="game-area">
+        <div id="swatch" class="swatch"></div>
+        <div id="options" class="options"></div>
+      </div>
+      <div id="gameResult" class="game-result"></div>
+      <button id="newRound">New Round</button>
+    </section>
+
+    <section class="gallery">
+      <h2>Photo Gallery — Glimpses</h2>
+      <p>Selected photographs and study shots (placeholders). Click an image to view details and credits.</p>
+      <div class="gallery-grid">
+        <figure class="gallery-item">
+          <img src="images/pattern1.svg" alt="Pattern 1" class="gallery-thumb" data-credit="Photo: Local artisan collective"/>
+          <figcaption>Block print swatch — Motif study<br/><small>Photo: Local artisan collective</small></figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <img src="images/pattern2.svg" alt="Pattern 2" class="gallery-thumb" data-credit="Photo: Field study"/>
+          <figcaption>Repeat pattern study<br/><small>Photo: Field study</small></figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <img src="images/artisan1.svg" alt="Artisan" class="gallery-thumb" data-credit="Photo: Community archive"/>
+          <figcaption>Artisan at work<br/><small>Photo: Community archive</small></figcaption>
+        </figure>
+      </div>
+
+      <div id="lightbox" class="lightbox" aria-hidden="true">
+        <div class="lightbox-inner">
+          <button id="lbClose" class="lb-close">Close</button>
+          <div id="lbImage" class="lb-image"></div>
+          <div id="lbCaption" class="lb-caption"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>Created as a local digital artefact — learn more, support local artisans.</small>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

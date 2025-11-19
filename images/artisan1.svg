@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 180">
+  <rect width="100%" height="100%" fill="#fff8f0"/>
+  <g transform="translate(30,20)" fill="#c24a2c">
+    <rect x="0" y="80" width="60" height="10" rx="3"/>
+    <rect x="70" y="60" width="20" height="30" rx="4"/>
+    <circle cx="30" cy="40" r="16" fill="#f28b3e"/>
+    <rect x="110" y="60" width="120" height="40" fill="#fff3ec" stroke="#f2d7c7"/>
+  </g>
+  <text x="12" y="160" font-size="11" fill="#b35a3f">Artisan at work — placeholder</text>
+</svg>
